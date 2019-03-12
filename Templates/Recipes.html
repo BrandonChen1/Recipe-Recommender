@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    nav ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    nav li{
+        display: inline-block;
+        margin-right: 20px;
+    }
+    header{
+        height: 200px;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    header p{
+        color: orange;
+    }
+
+    header .title{
+        font-size: 40px;
+        text-align: center;
+    }
+    header .sort{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 2px;
+        padding: 2px;
+    }
+    body{
+        height: 600px;
+        background-color: darkgray;
+        background-image: url("../static/background.jpg");
+        background-size: 100%;
+        background-position: center;
+        color: orange;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    body .table{
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-shadow: gray 0 0 10px;
+        margin-bottom: 10px;
+    }
+    li img{
+        width: 20px;
+        height: 20px;
+        margin-left: 40px;
+        position: relative;
+        top: 5px;
+    }
+    div .name{
+        font-size: 25px;
+    }
+    p{
+        color: #ffac1b;
+    }
+    ul{
+        list-style-type: none;
+    }
+    ul li{
+        display: inline-block;
+    }
+    table{
+        color:#ffac1b;
+    }
+    td{
+        width: 400px;
+    }
+    td:hover{
+        background-color: lightgray;
+    }
+    tr{
+        height: 40px;
+    }
+    button{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    button img{
+        width: 42px;
+        height: 42px;
+    }
+    footer{
+        color: black;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        background-color: gray;
+        padding: 20px;
+        font-size: 12px;
+        text-align:center;
+    }
+</style>
+
+<header>
+
+    <meta charset="UTF-8">
+    <p class="title">Recipe with {{ActualObject}}</p>
+    <p class="sort">Sorted by {{CheckV}}</p>
+
+</header>
+
+<body>
+      <meta charset="UTF-8">
+      {% for Link in ListOfLink %}
+      <div class = 'table'>
+          <p class = "name">{{Link[4]}}</p>
+          <ul class = "">
+              <li><a href="{{ Link[0] }}" target="_blank">{{ Link[0].split('.')[1]}}</a></li>
+              <li><img src = "{{ url_for('static', filename='dollar.png') }}"></li>
+              <li><p class = "price">{{Link[2]}}</p></li>
+              <li><img src = "{{ url_for('static', filename='clock.png') }}"></li>
+              <li><p class = "time">{{Link[3]}} minutes</p></li>
+          </ul>
+          <ul>
+              <p class = "Ingredients">Ingredients</p>
+              <table>
+                  <ul>
+                      {% for length0 in range((Link[1]|length)//4) %}
+                      <tr>
+                          {% for iterate in range(4) %}
+                          <td>{{Link[1][length0*4+iterate]}}</td>
+                          {% endfor %}
+                      </tr>
+                      {% endfor %}
+                      <tr>
+                        {% for leftover in range((Link[1]|length)//4 * 4, (Link[1]|length)) %}
+                        <td>{{Link[1][leftover]}}</td>
+                        {% endfor %}
+                      </tr>
+                  </ul>
+              </table>
+          </ul>
+      </div>
+      {% endfor %}
+      <button onclick="location.href='http://127.0.0.1:5000'" type="button">
+          <img src = "{{ url_for('static', filename='back.png') }}">
+      </button>
+</body>
+
+<footer>
+    <meta charset="ISO-8859-1">
+    <nav>
+        <ul>
+            <li> Brandon Chen &nbsp;&nbsp;&nbsp;&nbsp;&sdot; </li>
+            <li><a href = "aboutUs.html"> About Us</a></li>
+            <li> &sdot; &nbsp;&nbsp;&nbsp;&nbsp;Jack Xu</li>
+        </ul>
+    </nav>
+</footer>
+
+</html>

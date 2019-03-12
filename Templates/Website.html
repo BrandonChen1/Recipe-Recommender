@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<style>
+    header{
+        background-color: blue
+        height: 200px;
+        padding: 10px;
+        text-align:center;
+        position: relative;
+    }
+    header a{
+        color:white;
+        text-transform: uppercase;
+        margin-top: 30px;
+        display: block;
+    }
+    header a img{
+        width: 42px;
+        height: 42px;
+    }
+    header .logo a{
+        background-image: url({{ url_for('static', filename='logo.png') }});
+        background-size: 300px;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 200px;
+        text-indent: -9999999px;
+        text-align:center;
+        position: relative;
+        top: -40px;
+        right: -60px;
+    }
+    nav ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    nav li{
+        display: inline-block;
+        margin-right: 20px;
+    }
+    body{
+        background-color: darkgray;
+        background-image: url("{{ url_for('static', filename='background.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: 125%;
+        background-position: center;
+        color: orange;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    div .middle{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+    .pictures{
+        text-align:center;
+        color: white;
+    }
+
+    .pictures figure{
+        display: inline-block;
+        text-align:center;
+        text-transform:uppercase;
+    }
+    .pictures figure img{
+        border: 1px solid white;
+        border-radius: 50%;
+        box-shadow: gray 0 0 10px;
+        width: 300px;
+        height: 300px;
+    }
+
+    footer{
+        color: white;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        background-color: gray;
+        padding: 20px;
+        font-size: 12px;
+        text-align:center;
+    }
+
+</style>
+<html lang="en">
+<header>
+    <meta charset="UTF-8">
+    <nav>
+        <ul>
+            <li> <a href = "https://github.com/">
+                <img src = "{{ url_for('static', filename='github.png') }}"> </a>
+            </li>
+            <li> <a href = "https://linkedin.com">
+                <img src = "{{ url_for('static', filename='linked.png') }}"> </a>
+            </li>
+
+            <li class = "logo"> <a href = "Website.html"> Lazy Recipe </a></li>
+
+            <li> <a href = "https://linkedin.com/">
+                <img src = "{{ url_for('static', filename='linked.png') }}"> </a>
+            </li>
+            <li> <a href = "https://github.com/">
+                <img src = "{{ url_for('static', filename='github.png') }}"> </a>
+            </li>
+        </ul>
+
+    </nav>
+</header>
+<body>
+    <div style="text-align: center;">
+        <div class = "middle">
+            <form action="/Recipes" method = "POST" enctype="multipart/form-data">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left">
+                        <span>  Choose File  </span>
+                        <input type="file" name = "fileupload">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name = "Check">
+                            <option selected disabled> Sort by  </option>
+                            <option value =""> None</option>
+                            <option value="Price">Price</option>
+                            <option value="Ingredient">Ingredient</option>
+                        </select>
+                        <input type="submit" value="submit">
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section class = "pictures">
+
+        <figure>
+            <img src = "{{ url_for('static', filename='goldfish.jpg') }}">
+            <figcaption> Input </figcaption>
+        </figure>
+
+        <figure>
+            <img src = "{{ url_for('static', filename='code.png') }}">
+            <figcaption> Code </figcaption>
+        </figure>
+
+        <figure>
+            <img src = "{{ url_for('static', filename='cooked.jpg') }}">
+            <figcaption> Recipes </figcaption>
+        </figure>
+
+    </section>
+</body>
+
+<footer>
+    <meta charset="ISO-8859-1">
+    <nav>
+        <ul>
+            <li> Brandon Chen &nbsp;&nbsp;&nbsp;&nbsp;&sdot; </li>
+            <li><a href = "aboutUs.html"> About Us</a></li>
+            <li> &sdot; &nbsp;&nbsp;&nbsp;&nbsp;Jack Xu</li>
+        </ul>
+    </nav>
+</footer>
+
+</html>

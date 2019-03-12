@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <center>
+    <title>Recipe</title>
+    <h1> Recipe with  {{ActualObject}}</h1>
+
+    <table>
+        {% for Link in ListOfLink %}
+         <td>
+             <table>
+                 <td> <a href="{{ Link[0] }}" target="_blank">{{ Link[0][12:21]}}</a></td>
+
+                <td>Price =  {{Link[2]}}</td>
+                {% for Ingredient in Link[1] %}
+                    <td> {{Ingredient}} </td>
+                {% endfor %}
+          </table>
+         </td>
+        {% endfor %}
+    </table>
+    <button onclick="location.href='http://127.0.0.1:5000'" type="button">
+        Go Back
+        </button>
+        </center>
+
+</head>
+<body>
+
+</body>
+</html>
